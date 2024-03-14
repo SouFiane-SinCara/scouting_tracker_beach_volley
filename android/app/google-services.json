@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "853452171464",
+    "project_id": "scouting-tracker-beach-v-808cc",
+    "storage_bucket": "scouting-tracker-beach-v-808cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853452171464:android:bcc894f4bbd28484619dfd",
+        "android_client_info": {
+          "package_name": "com.example.scouting_tracker_beach_volley"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853452171464-pr3t22970kkplf59sf8s5sht9nps187q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj1QEF5-VwoqwNLg7iZ8Naw_RrNph_Boo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853452171464-pr3t22970kkplf59sf8s5sht9nps187q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853452171464-ca8mibvdpid6iqnl4jc3uh53khtl1dko.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.scoutingTrackerBeachVolley"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
