@@ -81,7 +81,7 @@ class StartMatch extends StatelessWidget {
                 currentSet: 1,
                 playerNumber: 2,
                 deletable: true,
-                playerTeam: 1,
+                playerTeam: isBlueTeam ? 1 : 2,
                 state: '',
                 method: "manual",
                 player: Player(
@@ -92,7 +92,7 @@ class StartMatch extends StatelessWidget {
                     strongHand: 'l',
                     tournamentTitle: 'tournamentTitle',
                     dateLocation: 'dateLocation',
-                    team: '1',
+                    team: isBlueTeam ? '1' : '2',
                     player: '1',
                     account: account,
                     note: 'note'),

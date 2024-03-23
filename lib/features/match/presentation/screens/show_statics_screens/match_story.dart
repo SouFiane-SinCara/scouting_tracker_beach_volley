@@ -94,14 +94,13 @@ class _MatchstoryState extends State<Matchstory> {
               if (beatstate is BeatsActionsLoadedState) {
                 return BlocBuilder<SetsCubit, SetsState>(
                   builder: (context, setsSate) {
+                    
                     totHomeScoore = 0;
                     totAwayScoore = 0;
                     homeScoore = 0;
                     awayScoore = 0;
                     List<BeatAction> beats = beatstate.beats;
-                    beats.forEach((element) {
-                      print(element.player.surname);
-                    });
+                  
                     List.generate(beats.length, (index) {
                       int? currentSet =
                           BlocProvider.of<SetsCubit>(context).currentSet;

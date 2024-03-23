@@ -51,28 +51,6 @@ class StaticsPage extends StatefulWidget {
 
 class _StaticsPageState extends State<StaticsPage> {
   @override
-  void initState() {
-    super.initState();
-    // Set landscape orientation
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
-
-    BlocProvider.of<AcctionsPlayCubit>(context)..emit(AcctionsPlayInitial());
-  }
-
-  @override
-  void dispose() {
-    // Set portrait orientation
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     Size size = device(context);
@@ -209,9 +187,8 @@ class _StaticsPageState extends State<StaticsPage> {
                                   width: size.width * 0.005,
                                 ),
                                 InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          
+                                  splashColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () {
                                     BlocProvider.of<SetsCubit>(context)
                                                 .currentSet ==
@@ -243,9 +220,8 @@ class _StaticsPageState extends State<StaticsPage> {
                                   width: size.width * 0.005,
                                 ),
                                 InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          
+                                  splashColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () {
                                     BlocProvider.of<SetsCubit>(context)
                                                 .currentSet ==
@@ -277,9 +253,8 @@ class _StaticsPageState extends State<StaticsPage> {
                                   width: size.width * 0.005,
                                 ),
                                 InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          
+                                  splashColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () {
                                     BlocProvider.of<SetsCubit>(context)
                                                 .currentSet ==
@@ -443,7 +418,6 @@ class _StaticsPageState extends State<StaticsPage> {
                         InkWell(
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
-                          
                           onTap: () {
                             turnToInitial();
 
@@ -808,7 +782,6 @@ class _StaticsPageState extends State<StaticsPage> {
                 );
               },
             ),
-            
             Expanded(
               child: SingleChildScrollView(
                 child: BlocBuilder<GraphicOrStateCubit, GraphicOrStateState>(
