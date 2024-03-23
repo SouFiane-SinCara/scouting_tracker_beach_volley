@@ -1,11 +1,15 @@
 // ignore_for_file: unnecessary_type_check, use_build_context_synchronously, prefer_const_constructors
 
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:open_file/open_file.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:scouting_tracker_beach_volley/core/constants/device/size.dart';
 import 'package:scouting_tracker_beach_volley/core/constants/device/theme.dart';
 import 'package:scouting_tracker_beach_volley/core/constants/strings/routes_names.dart';
@@ -18,6 +22,7 @@ import 'package:scouting_tracker_beach_volley/features/match/data/sources/remote
 import 'package:scouting_tracker_beach_volley/features/match/domain/entites/beat_Action.dart';
 import 'package:scouting_tracker_beach_volley/features/match/domain/entites/match.dart';
 import 'package:scouting_tracker_beach_volley/features/match/domain/entites/pdf_api.dart';
+import 'package:scouting_tracker_beach_volley/features/match/presentation/screens/pdf_page.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/attack_type_cubit/attack_type_cubit.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/direction_cubit/direction_cubit.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/get_beats_cubit/get_beats_cubit.dart';
@@ -910,10 +915,16 @@ class StartMatch extends StatelessWidget {
                                         ),
                                         InkWell(
                                           onTap: () async {
-                                            final pdfFile = await PdfApi
-                                                .generateMatchStatic(
-                                                    state.aMatch);
-                                            await PdfApi.openFile(pdfFile);
+                                            // File file = await PdfApi
+                                            //     .generateMatchStatic(
+                                            //         state.aMatch);
+                                            // OpenFile.open(file.path);
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      PdfStatistics(),
+                                                ));
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(
@@ -938,7 +949,7 @@ class StartMatch extends StatelessWidget {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             AMatch aMatch = state.aMatch;
-                                                 
+
                                             await BlocProvider.of<
                                                     GetBeatsCubit>(context)
                                                 .getBeats(aMatch: aMatch);

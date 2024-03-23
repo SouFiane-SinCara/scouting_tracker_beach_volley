@@ -120,7 +120,7 @@ class BeatGrafic extends StatelessWidget {
                                 : element.method == 'immediateAce'
                                     ? Colors.green
                                     : element.method == 'receivingOtherFields'
-                                        ? Colors.yellow[800]
+                                        ? Colors.red
                                         : Colors.black
                             : element.method == 'Quickplus'
                                 ? Colors.green
