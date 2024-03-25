@@ -154,7 +154,11 @@
     "defendedAttack":"Attacco Difeso",
     "positiveReception":"Ricezione Positiva",
     "negativeReception":"Ricezione negativa",
-    "totAttack":"Total attacchi"
+    "totAttack":"Total attacchi",
+    "attack":"attacco",
+    "opponent":"avversario",
+    "total":"totale",
+    "description":"descrizione"
 
     
 

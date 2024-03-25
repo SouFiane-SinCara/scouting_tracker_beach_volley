@@ -160,7 +160,12 @@
     "defendedAttack":"Defended Attack",
     "positiveReception":"Positive Reception",
     "negativeReception":"Negative Reception",
-    "totAttack":"Total Attacks"
+    "totAttack":"Total Attacks",
+    "attack":"attack",
+    "opponent":"opponent",
+    "total":"total",
+    "description":"description"
+
 
 
 
