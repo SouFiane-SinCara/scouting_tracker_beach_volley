@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:scouting_tracker_beach_volley/core/constants/device/size.dart';
-import 'package:scouting_tracker_beach_volley/core/constants/strings/routes_names.dart';
 import 'package:scouting_tracker_beach_volley/features/auth/domain/entits/account.dart';
-import 'package:scouting_tracker_beach_volley/features/auth/presensation/state_mangament/cubit/login_cubit.dart';
 import 'package:scouting_tracker_beach_volley/features/match/domain/entites/beat_Action.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/screens/start_match.dart';
-import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/action_play_cubit/acctions_play_cubit.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/get_beats_cubit/get_beats_cubit.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/last_match_cubit/last_match_cubit.dart';
 import 'package:scouting_tracker_beach_volley/features/match/presentation/state_managments/sets_cubit/sets_cubit.dart';
@@ -59,10 +55,12 @@ class _MatchstoryState extends State<Matchstory> {
     String acctionDiscription(
         String acction, int breakPoint, String stateAcction) {
       String prefix;
-        print('beat ${stateAcction} ');
+      print('beat ${stateAcction} ');
       if (stateAcction == 'reception') {
         prefix = 'BT - ';
-      } else if ((stateAcction == 'BreackPointState()'||stateAcction == 'BreackPointState' ) && breakPoint > 0) {
+      } else if ((stateAcction == 'BreackPointState()' ||
+              stateAcction == 'BreackPointState') &&
+          breakPoint > 0) {
         prefix = 'BK $breakPoint - ';
       } else {
         prefix = '${lang!.so} - ';
@@ -94,13 +92,12 @@ class _MatchstoryState extends State<Matchstory> {
               if (beatstate is BeatsActionsLoadedState) {
                 return BlocBuilder<SetsCubit, SetsState>(
                   builder: (context, setsSate) {
-                    
                     totHomeScoore = 0;
                     totAwayScoore = 0;
                     homeScoore = 0;
                     awayScoore = 0;
                     List<BeatAction> beats = beatstate.beats;
-                  
+
                     List.generate(beats.length, (index) {
                       int? currentSet =
                           BlocProvider.of<SetsCubit>(context).currentSet;
@@ -130,9 +127,8 @@ class _MatchstoryState extends State<Matchstory> {
                                 totHomeScoore = totHomeScoore + 1;
                               }
                             } else {
-                              if (beats[index].method == 'battingError' || beats[index].method == 'errorRaisedBK' || 
-
-
+                              if (beats[index].method == 'battingError' ||
+                                  beats[index].method == 'errorRaisedBK' ||
                                   beats[index].method == 'attackErrorBK') {
                                 totHomeScoore = totHomeScoore + 1;
                               } else {
@@ -407,14 +403,15 @@ class _MatchstoryState extends State<Matchstory> {
                                                   'attackErrorBK')) {
                                             if ((beats[index].playerTeam == 1 &&
                                                     (beats[index].method !=
-                                                            'attackErrorBK' && beats[index].method !=
+                                                            'attackErrorBK' &&
+                                                        beats[index].method !=
                                                             'errorRaisedBK' &&
                                                         beats[index].method !=
                                                             'battingError')) ||
                                                 ((beats[index].method ==
                                                             'battingError' ||
                                                         beats[index].method ==
-                                                            'attackErrorBK'||
+                                                            'attackErrorBK' ||
                                                         beats[index].method ==
                                                             'errorRaisedBK') &&
                                                     beats[index].playerTeam ==
@@ -442,14 +439,17 @@ class _MatchstoryState extends State<Matchstory> {
                                               (beats[index].playerTeam == 1 &&
                                                           (beats[index]
                                                                       .method !=
-                                                                  'battingError' &&beats[index]
+                                                                  'battingError' &&
+                                                              beats[index]
                                                                       .method !=
                                                                   'errorRaisedBK' &&
                                                               beats[index]
                                                                       .method !=
                                                                   'attackErrorBK')) ||
                                                       ((beats[index].method ==
-                                                                  'battingError' ||beats[index].method ==
+                                                                  'battingError' ||
+                                                              beats[index]
+                                                                      .method ==
                                                                   'errorRaisedBK' ||
                                                               beats[index]
                                                                       .method ==
@@ -463,14 +463,17 @@ class _MatchstoryState extends State<Matchstory> {
                                               (beats[index].playerTeam == 2 &&
                                                           (beats[index]
                                                                       .method !=
-                                                                  'battingError' &&beats[index]
+                                                                  'battingError' &&
+                                                              beats[index]
                                                                       .method !=
                                                                   'errorRaisedBK' &&
                                                               beats[index]
                                                                       .method !=
                                                                   'attackErrorBK')) ||
                                                       ((beats[index].method ==
-                                                                  'battingError' || beats[index].method ==
+                                                                  'battingError' ||
+                                                              beats[index]
+                                                                      .method ==
                                                                   'errorRaisedBK' ||
                                                               beats[index]
                                                                       .method ==

@@ -158,7 +158,10 @@
     "attack":"attacco",
     "opponent":"avversario",
     "total":"totale",
-    "description":"descrizione"
+    "description":"descrizione",
+    "partialscore":"punteggio parziale",
+    "finalpoints":"punti finale",
+    "pdfgeneration":"Generazione PDF"
 
     
 

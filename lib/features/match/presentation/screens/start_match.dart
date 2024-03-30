@@ -78,7 +78,7 @@ class StartMatch extends StatelessWidget {
         ? await repositoryMatchImp.addBeat(
             beatAction: BeatAction(
                 breackpointNum: -1,
-                currentSet: 1,
+                currentSet: currentSet,
                 playerNumber: 2,
                 deletable: true,
                 playerTeam: isBlueTeam ? 1 : 2,
@@ -923,7 +923,7 @@ class StartMatch extends StatelessWidget {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      PdfStatistics(),
+                                                      PdfStatistics(account: account,),
                                                 ));
                                           },
                                           child: Container(
