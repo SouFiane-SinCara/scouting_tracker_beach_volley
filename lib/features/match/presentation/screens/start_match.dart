@@ -72,7 +72,6 @@ class StartMatch extends StatelessWidget {
   Future<void> addPoint(
       BuildContext context, bool isBlueTeam, bool isManual) async {
     RepositoryMatchImp? repositoryMatchImp = RepositoryMatchImp();
-    print("is manual $isManual");
 
     isManual == true
         ? await repositoryMatchImp.addBeat(
@@ -388,7 +387,7 @@ class StartMatch extends StatelessWidget {
                                                           Alignment.center,
                                                       child: FittedBox(
                                                         child: Text(
-                                                          '${sccore.homeSet1 + sccore.homeSet2 + sccore.homeSet3} ',
+                                                          '${currentSet == 1 ? sccore.homeSet1 : currentSet == 2 ? sccore.homeSet2 : currentSet == 3 ? sccore.homeSet3 : ""} ',
                                                           style: TextStyle(
                                                               color: theme.brightness ==
                                                                       Brightness
@@ -425,7 +424,7 @@ class StartMatch extends StatelessWidget {
                                                           Alignment.center,
                                                       child: FittedBox(
                                                         child: Text(
-                                                          '${sccore.awaySet1 + sccore.awaySet2 + sccore.awaySet3}',
+                                                          '${currentSet == 1 ? sccore.awaySet1 : currentSet == 2 ? sccore.awaySet2 : currentSet == 3 ? sccore.awaySet3 : ""} ',
                                                           style: TextStyle(
                                                               color: theme.brightness ==
                                                                       Brightness
@@ -923,7 +922,9 @@ class StartMatch extends StatelessWidget {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      PdfStatistics(account: account,),
+                                                      PdfStatistics(
+                                                    account: account,
+                                                  ),
                                                 ));
                                           },
                                           child: Container(
@@ -1291,6 +1292,12 @@ class StartMatch extends StatelessWidget {
                                                             false);
                                                       }
                                                     }
+                                                    ShowPlayerOnFieldState
+                                                        playerField =
+                                                        BlocProvider.of<
+                                                                    ShowPlayerOnFieldCubit>(
+                                                                context)
+                                                            .state;
                                                   },
                                                   child: PlayerOnField(
                                                     isBlueTeam: false,

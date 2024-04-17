@@ -585,7 +585,7 @@ class BeatPage extends StatelessWidget {
                                       bool? continuedLine =
                                           BlocProvider.of<BallLineCubit>(
                                                   context)
-                                              .continued;
+                                              .continued; 
 
                                       Offset? p1 =
                                           BlocProvider.of<BallLineCubit>(

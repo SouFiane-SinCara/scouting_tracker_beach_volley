@@ -134,36 +134,35 @@ class _VolleyballFieldState extends State<VolleyballField> {
                                         endPoint: endPoint ?? Offset.zero));
                           },
                         ),
-                        widget.isBeat != null && state.redTeam == false
+                        widget.isBeat != null &&
+                                ((state.redTeam == false && inverted != true) ||
+                                    (state.redTeam == true && inverted == true))
                             ? Positioned(
-                                bottom: blueInverted == false
-                                    ? size.height * -0.005
-                                    : null,
-                                top: blueInverted == true
-                                    ? size.height * -0.005
-                                    : null,
-                                left: inverted == false
-                                    ? size.width * 0.00
-                                    : null,
-                                right:
-                                    inverted == true ? size.width * 0.00 : null,
+                                left: size.width * 0.00,
                                 child: Container(
-                                 height: 150,
+                                  height: 150,
                                   width: 4,
                                   decoration: BoxDecoration(
-                                    color: Colors.blue,
+                                    color: state.redTeam == true
+                                        ? Colors.red
+                                        : Colors.blue,
                                   ),
                                 ),
                               )
                             : SizedBox(),
-                        widget.isBeat != null && state.redTeam == true
+                        widget.isBeat != null &&
+                                ((state.redTeam == true && inverted != true) ||
+                                    (state.redTeam == false &&
+                                        inverted == true))
                             ? Positioned(
                                 right: size.width * 0.00,
                                 child: Container(
                                   height: 150,
                                   width: 5,
                                   decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    color: state.redTeam == true
+                                        ? Colors.red
+                                        : Colors.blue,
                                   ),
                                 ),
                               )
@@ -329,9 +328,10 @@ class DiscontinuedLineWithBorderPainter extends CustomPainter {
 
             // Draw an icon at the midpoint
             // Draw an icon at the end of the line
-            if(!(beatsLines![i]['p1'] == Offset.zero && beatsLines![i]['p2'] ==Offset.zero)){
-                drawIconAtEnd(
-                canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
+            if (!(beatsLines![i]['p1'] == Offset.zero &&
+                beatsLines![i]['p2'] == Offset.zero)) {
+              drawIconAtEnd(
+                  canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
             }
           } else {
             Offset startPoint = beatsLines![i]['p1'];
@@ -370,9 +370,10 @@ class DiscontinuedLineWithBorderPainter extends CustomPainter {
 
               // Draw the dashed line using the path and paint objects
             }
-             if(!(beatsLines![i]['p1'] == Offset.zero && beatsLines![i]['p2'] ==Offset.zero)){
-                drawIconAtEnd(
-                canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
+            if (!(beatsLines![i]['p1'] == Offset.zero &&
+                beatsLines![i]['p2'] == Offset.zero)) {
+              drawIconAtEnd(
+                  canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
             }
           }
         }
@@ -394,7 +395,7 @@ class DiscontinuedLineWithBorderPainter extends CustomPainter {
 
       // Define the length of each dash and gap in the dashed line
       const dashLength = 5.0;
-              const gapLength = 2;
+      const gapLength = 2;
 
       // Calculate the length and direction of the line segment
       final lineLength = (endPoint - startPoint).distance;
@@ -535,9 +536,10 @@ class FieldWithBorderPainter extends CustomPainter {
 
             // Draw an icon at the midpoint
             // Draw an icon at the end of the line
-             if(!(beatsLines![i]['p1'] == Offset.zero && beatsLines![i]['p2'] ==Offset.zero)){
-                drawIconAtEnd(
-                canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
+            if (!(beatsLines![i]['p1'] == Offset.zero &&
+                beatsLines![i]['p2'] == Offset.zero)) {
+              drawIconAtEnd(
+                  canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
             }
           } else {
             Offset startPoint = beatsLines![i]['p1'];
@@ -571,14 +573,14 @@ class FieldWithBorderPainter extends CustomPainter {
                 path.lineTo(end.dx, end.dy);
 
                 canvas.drawPath(path, linePaint);
-                 
               }
 
               // Draw the dashed line using the path and paint objects
             }
-             if(!(beatsLines![i]['p1'] == Offset.zero && beatsLines![i]['p2'] ==Offset.zero)){
-                drawIconAtEnd(
-                canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
+            if (!(beatsLines![i]['p1'] == Offset.zero &&
+                beatsLines![i]['p2'] == Offset.zero)) {
+              drawIconAtEnd(
+                  canvas, beatsLines![i]['p2'], beatsLines![i]['color']);
             }
           }
         }
